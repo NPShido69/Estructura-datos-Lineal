@@ -9,15 +9,11 @@ public class SignValidator {
         for (char c : s.toCharArray()) {
             if (c == '(' || c == '{' || c == '[') {
                 pila.push(c);
-                //return true;
-
-            } else {
-                if (pila.isEmpty())
-                return false;
-
-            }
-            char top = pila.peek();
-            if ((c == ')' && top == '(') || (c == '}' && top == '{') || (c == ']' && top == '[')) {
+            } else if(c==')' && !pila.isEmpty() && pila.peek()== '(' ) {
+                pila.pop();
+            }else if(c=='}'&& !pila.isEmpty() && pila.peek()=='{' ){
+                pila.pop();
+            }else if(c==']' && !pila.isEmpty() && pila.peek()=='[' ){
                 pila.pop();
             } else {
                 return false;

@@ -1,9 +1,14 @@
 import Materia.Models.Pantallas;
 import Materia.Pilas.PilaGenerica;
 import Materia.Pilas.Pilas;
+
+import java.util.Stack;
+
+import Materia.ListasEnlazada;
 import Materia.Queue;
 import Materia.QueueGen;
 import Materia.Ejercicio_01_sign.SignValidator;
+import Materia.Ejercicio_02_sorting.StackSorte;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -69,9 +74,47 @@ public class App {
         System.out.println("Estoy en la pantalla \t" + queueGen.peek().getNombre());
         System.out.println("El tamaño es: " + queueGen.size());
 
-        SignValidator validador = new SignValidator();
-        String input = "{)}";
+    //EJERCICIO 1:
 
-        System.out.println("El validador de signos retorna: " + validador.isValid(input));
+        //Ejemplo1
+        SignValidator validador = new SignValidator();
+        String input = "([]){}";
+        boolean result1=  validador.isValid(input);
+        System.out.println("INPUT 1: " + input + "\n"+"The sign validator returns:  " + result1);
+
+        //Ejemplo2
+        String input2="({)}";
+        boolean result2=validador.isValid(input2);
+        System.out.println("INPUT 2: "+input2+ "\n"+"The sign validator returns: "+result2);
+
+        //EJERCICIO 2:
+
+        //Ejemplo1
+       
+        Stack<Integer> stack = new Stack<>();
+        stack.push(5);
+        stack.push(1);
+        stack.push(4);
+        stack.push(2);
+
+        System.out.println("INPUT (tope): " + stack);
+        StackSorte.sortStack(stack);
+        System.out.println("La Pila Ordenado es: " + stack);
+        System.out.print("OUTPUT(tope) is: ");
+        while (!stack.isEmpty()) {
+            System.out.print(stack.pop() + " ");
+
+        //------------------------------------------------------------------
+            ListasEnlazada lista = new ListasEnlazada();
+            lista.addNode(1);
+            lista.addNode(4);
+            lista.addNode(3);
+            lista.addNode(6);
+            lista.print();
+            lista.deleteNode(1);
+            lista.print();
+            lista.deleteNode(3);
+            lista.print();
+            }
     }
 }
