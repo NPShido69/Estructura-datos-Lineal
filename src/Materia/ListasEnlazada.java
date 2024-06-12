@@ -46,6 +46,11 @@ public class ListasEnlazada {
         }
 
     }
+    public int size (){
+
+        return 0;
+    }
+
     public void print(){
         if (head == null) {
             System.out.println("Lista vacia :C");
